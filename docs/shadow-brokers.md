@@ -18,35 +18,25 @@ We don't know, but some possibilities:
 - Hack of NSA's networks
 - An employee took files home (like Harold Martin, who took 50 TB home from the NSA), then the files were stolen
 
-## EternalBlue - MS017-010
+## EternalBlue (MS017-010) Released
 
-- One of the leaked exploits, used in WannaCry and NotPetya
+- A leaked exploit, used in WannaCry and NotPetya
 - An zero day vulnerability in Server Message Block (SMB)
 
-Stopping / modifying Windows event logs - found
+## Tool to Stop/Modify Windows Event Logs Released
 
-stopping = find thread in lsass that logs events, then suspend it
+- To stop Windows Event logging, the tool finds the thread in `lsass` that logs events, then suspends it
 
-modifying = can edit Windows events
+### Windows Event Log edits can be detected, though
 
-but these edits can be detected!
+- Attacker may edit a Windows logon event, but forget to edit the corresponding logout event
+- Defenders can also examine other forensics artifacts, instead of event logs
 
-- attacker may edit a Windows logon event to something else
-- but doesn't change the corresponding logout event!
-- logout without login is suspicious!
-- also look at other forensics artifacts for what's missing in event logs
+## Look at the dump!
 
-Also in Shadow Brokers dump - IOCs of other nation states!
-
-for counter intelligence
-
-Conclusion - Have to look at these dumps
-
-Attackers are looking at them and copying code from them
-
-1 undergrad kid hacked a university network
-
-then used Shadow Brokers code to edit event logs
+- The Shadow Brokers dump included IOCs of other nation-states, for counter intelligence
+- Attackers are looking at them and copying code from them
+- 1 undergrad student hacked a university network, then used code from the Shadow Brokers to edit event logs
 
 ## Shadow Brokers broke threat models
 
