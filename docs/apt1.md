@@ -1,6 +1,6 @@
 # APT 1
 
-[Original APT1 Report, from Mandiant](https://www.fireeye.com/content/dam/fireeye-www/services/pdfs/mandiant-apt1-report.pdf)
+[APT1 Report, from Mandiant](https://www.fireeye.com/content/dam/fireeye-www/services/pdfs/mandiant-apt1-report.pdf)
 
 ## Overview
 
