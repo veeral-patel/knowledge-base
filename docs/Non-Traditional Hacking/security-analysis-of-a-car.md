@@ -1,7 +1,5 @@
 # Experimental Security Analysis of a Modern Automobile
 
-[Original paper](files/cars-oakland2010.pdf)
-
 ## Introduction
 
 - Cars have 100 MB of binary code, or 100 million LOC
