@@ -1,7 +1,5 @@
 # APT30
 
-[APT30 Report, from Mandiant](files/apt30.pdf)
-
 ## Overview
 
 - Can infect air gapped networks using USBs
