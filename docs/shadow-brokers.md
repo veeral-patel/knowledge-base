@@ -1,4 +1,4 @@
-# Living in the Shadow of the Shadow Brokers (2018)
+# Living in the Shadow of the Shadow Brokers (SANS 2018)
 
 Talk by Jake Williams at SANS DFIR Summit 2018
 
