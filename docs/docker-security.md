@@ -25,3 +25,11 @@
 
 - For multi-tenancy - each customer’s containers in a separate VM
 - For different security levels - different VM for credit card processing, for example
+
+## An Attacker Looks at Docker (BlackHat 2018)
+
+[Talk on YouTube](https://www.youtube.com/watch?v=HTM3ZrSvp6c)
+
+- Speaker gets code execution on a Joomla web server
+- He runs an nmap scan to enumerate the backend containers - `postgres`, `node.js`, `redis`
+- Inserts votes into the Postgres DB and Redis instance (they don’t have authentication enabled)
