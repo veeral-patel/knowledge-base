@@ -19,6 +19,16 @@
 
 ## Persistence
 
+- Autoruns in Windows Registry
+- DLL Search Order Hijacking
+- Shortcut Hijacking
+- Bootkit
+- `.bashrc` and `.bash_profile`
+- Web shells
+- Browser extensions
+- Firmware
+- Login item (macOS)
+
 ### Startup folders
 
 - Each user has a startup folder
@@ -35,8 +45,6 @@
 - Can use Windows Resource Protection to counter-act this
 - Also, if a system binary changes, its hash will change
 - And its digital signature will be invalidated
-
-### DLL Search Order Hijacking
 
 ## Exfiltration
 
@@ -121,3 +129,23 @@
 - Use a proxy. Can chain multiple proxies
 - Split communication over multiple chaanels
 - Encrypt C&C body, even while using HTTPS
+
+## Information gathering
+
+From an endpoint, can gather:
+
+- Accounts
+- Open applications (Helps keylogger)
+- Browser extensions
+- Files/directories on disk
+- Network shares
+- Running processes
+- Security software on machine
+- System info (patches, OS version, etc)
+- Network connections
+
+Can also:
+
+- Port scan other hosts
+- Sniff network traffic
+- Query registry
