@@ -1,6 +1,6 @@
 # CH1 - What is security engineering?
 
-From "Security Engineering" by Ross Anderson
+From ["Security Engineering" by Ross Anderson](http://www.cl.cam.ac.uk/~rja14/book.html)
 
 ## Good security engineering has 4 parts
 
