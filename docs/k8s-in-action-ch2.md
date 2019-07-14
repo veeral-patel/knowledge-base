@@ -27,12 +27,10 @@ From [Kubernetes in Action](https://www.manning.com/books/kubernetes-in-action)
 ## Organizing containers across pods
 
 - Organize applications into multiple pods
-  - Each pod contains only tightly related components
-  - For example - 1 main container plus helper containers
-    - `main` = a web server that serves files from a folder
-    - `helper` = periodically downloads files into folder
-- Run web app and database in different pods, for example
-  - Can break web app further into pods -- ie, separate pods for GraphQL and REST APIs
+- Each pod contains only tightly related components
+- For example - 1 main container plus helper containers
+  - `main` = a web server that serves files from a folder
+  - `helper` = periodically downloads files into folder
 - K8s scales pods, not individual containers
-  - If you need to scale a container individually, make it a separate pod
+- If you need to scale a container individually, make it a separate pod
 - If in doubt, create a separate pod
