@@ -73,9 +73,14 @@
 - Not running in a VM
 - Installing a root certificate
 - Packing
-- Process hollowing
 - Timestomping
 - Overwriting programs like `ls` and `ps`
+
+### Process hollowing
+
+- Launch a legitimate process like `calc.exe`, then suspend the process and replace the process's memory with the code of another program
+- Causes Windows to think the original process is running, but it's not
+- To detect: use Volatility to dump a process's code to an executable. Then, compare that executable with the original file on the filesystem
 
 ## Stealing credentials
 
