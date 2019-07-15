@@ -109,9 +109,29 @@ sales.newcorp.com - 1 OU
 - Flexport can then combine `flexport.com` and `foobar.com` into a forest - so 1
   central group can administer both, the trees share a schema, etc
 
-## Physical AD Layout
+## Physical AD layout
 
 - can replicate your domain controllers (DCs)
 - can select domain controllers to store global catalogs
 - guideline - have a DC at each branch office with >= 50 people to speed up authentication requests
 - have a DC at any office with applications running which require AD authentication
+
+## Managing users and groups
+
+### Creating user objects
+
+Open AD Users and Groups (ADUC) application from Server Manager in Windows Server
+
+LDIFDE = import objects from LDIF file
+CSVDE = import objects from CSV file
+
+### Types of groups
+
+- Domain local groups = only valid within their local domain
+- Global groups = valid within specified domains
+- Universal groups = valid across all domains in a forest
+
+#### Uses of groups
+
+- Security - to restrict access to specific people. Can give 1 group read-only access, another write access too, etc
+- Distribution - say you wanted to email all employees in California
