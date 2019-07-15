@@ -77,3 +77,32 @@ elif typeof(board) is Board:
 else:
 	# Throw error
 ```
+
+## Domain driven design
+
+From ["DDD Quickly"](http://carfield.com.hk/document/software%2Bdesign/dddquickly.pdf)
+
+- DDD helps establish a shared vocabulary between developers and domain experts
+- In DDD, there's two kinds of objects, entities and value objects
+
+### Entities
+
+- an object not defined by its attributes
+- an entity's attributes aren't sufficient to describe it
+- each entity has its own unique identifier (eg, an ID, UUID, combination of attributes, etc)
+- example - a human
+
+### Value objects
+
+- we only care about the attributes
+- for example, a point & its coordinates
+
+### Distinguishing entities and value objects
+
+- If you changed a person's name, hair color, and age, would be the same person? YES => Entity
+- If you changed an address's street name and city, would it be the same address? NO => Value object
+
+### Services and bounded contexts
+
+- Services are helper functions that don't belong in entity nor value objects
+- Bounded contexts - a customer to Sales is not the same as a customer to Customer Support. Sales and Customer Support are bounded contexts.
