@@ -39,3 +39,20 @@ Logs:
 - From proxy servers - URLs requests
 - Firewalls - packets accepted or denied
 - Flow records - high level traffic overview
+
+## DIY DNS DFIR
+
+[Talk on YouTube](https://www.youtube.com/watch?v=ihxkxV80u6I)
+
+From "SANS Threat Hunting Summit 2016"
+
+### Free tools
+
+- PassiveTotal
+- ELK or Graylog (for storing DNS queries)
+
+### Commercial tools
+
+- PassiveTotal Enterprise
+- DomainTools
+- OpenDNS Investigate
