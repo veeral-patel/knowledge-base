@@ -76,6 +76,16 @@
 - Timestomping
 - Overwriting programs like `ls` and `ps`
 
+### VM detection techniques
+
+- [Check CPU temperature](https://www.andreafortuna.org/dfir/malware-analysis/malware-vm-detection-techniques-evolving-an-analysis-of-gravityrat/)
+- Can check other hardware like Motherboard, Processor, etc
+- Check for processes like VMWare Tools
+- Check for driver files on disk
+- Check for registry keys
+- Check if MAC address of network adapter corresponds to VMWare, VirtualBox, etc
+- Examine OS data structures in memory
+
 ### Process hollowing
 
 - Launch a legitimate process like `calc.exe`, then suspend the process and replace the process's memory with the code of another program
