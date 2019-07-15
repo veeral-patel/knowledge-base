@@ -115,3 +115,43 @@ Gigamon also sells its platform to mobile service providers for subscriber-speci
   interface
 - These subscriptions would start working immediately, and you could sign up for
   a free trial first. This would make upselling painless.
+
+## FireEye
+
+From FireEye's 10K filing
+
+### Overview
+- 66% of revenue from US, 15% from Europe/Middle East/Africa, 14% from Asia Pacific
+- 45% of Global 2000 are their customers
+- 6600 end customers
+- $750M revenue in 2017, market cap $3B = 4x revenue (not much!) 
+
+### Products
+
+- Network security products.
+- Email security products.
+- Endpoint security products.
+- Security management & orchestration products.
+- Forensics and investigation products.
+- Subscription and services.
+
+### "Cybersecurity Firm’s Strategy Raises Eyebrows" (WSJ, 2015)
+
+- FireEye has a small loss (2015) - $444 million loss, $426 million revenue per quarter
+- They bought Mandiant for $1B which gave them ties to organizations that hired Mandiant after getting hacked
+- Crowdstrike recently hired top cyber person at FBI and Tanium hired 2 FBI agents, to help them get government contracts
+- They have security clearances in 18 countries so it is possible to go global with govt contracts
+- FireEye has been traditionally sold hardware appliances, but now they are shifting to a SaaS based model to increase profits
+
+### “FireEye Buys iSight Partners for $200M” (WSJ, 2016)
+[Link to article](https://archive.is/fkj8z)
+
+- iSight has 250 former military, govt people from the countries they’re based in 17 countries
+- Monitor hacker forums, talk to local sources to identify potential threats
+
+### “FireEye Buys Invotas Intl” (WSJ, 2016)
+[Link to article](http://archive.is/dzR12)
+
+- Invotas launched in 2014, was in stealth for 3 years, has 19 employees
+- Spun off CSG Systems Intl last year
+- FireEye didn’t disclose how much they paid 
