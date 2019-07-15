@@ -42,3 +42,69 @@ From [Active Directory for Dummies](https://www.amazon.com/Active-Directory-Dumm
 
 - indexes all the objects in a forest so they're searchable
 - but only indexes attributes you specify in the schema
+
+## AD Tree or Forest?
+
+- use a forest if you need to use more than 1 namespace
+- one namespace: corp.com = 1 domain
+
+```
+One Domain:
+sales.corp.com - 1 OU
+finance.corp.com - 1 OU
+```
+
+- multiple namespaces - `corp.com`, `newcorp.com` = domains grouped in 1 forest
+
+```
+One Forest:
+sales.corp.com - 1 OU
+sales.newcorp.com - 1 OU
+```
+
+## Domains in the same forest share:
+
+- the same schema
+- the same configuration partition (?)
+- 2-way Kerberos trust
+- a common "Enterprise Administrators" group
+  - only group allowed to make forest-wide changes, like adding/removing a domain
+- same global catalog
+
+## Organizing with OUs
+
+- each OU is in exactly 1 domain
+- an OU can't contain objects from other domains
+
+- patterns for organizing a domain's objects into OUs:
+
+  - object-based - most flexible
+    - domain has OUs for users, printers, computers (for example)
+  - administrative
+  - division/department
+
+- can assign an administrator to an OU
+
+## Stable Domains and Transient OUs
+
+- domains should be stable - objects should not move frequently btwn domains
+  - base domains on geography, not department/function/etc
+- OUs are for transient groupings, like project
+
+## Example: `flexport.com` [root domain]
+
+```
+- us.flexport.com [domain]
+  - users.eng.us.flexport.com [ou]
+  - printers.eng.us.flexport.com [ou]
+  - fileshares.eng.us.flexport.com [ou]
+- asia.flexport.com [domain]
+- eu.flexport.com [domain]
+```
+
+- here, you have a tree of domains
+
+- now, if Flexport buys foobar.com (but keeps it independent), then it'll have
+  2 trees - `flexport.com` and `foobar.com`
+- Flexport can then combine `flexport.com` and `foobar.com` into a forest - so 1
+  central group can administer both, the trees share a schema, etc
