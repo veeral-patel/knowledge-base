@@ -106,3 +106,36 @@ From ["DDD Quickly"](http://carfield.com.hk/document/software%2Bdesign/dddquickl
 
 - Services are helper functions that don't belong in entity nor value objects
 - Bounded contexts - a customer to Sales is not the same as a customer to Customer Support. Sales and Customer Support are bounded contexts.
+
+## Demeter Principle
+
+A method should not access a field 2 levels down
+
+OK -
+
+```
+if user.account.is_valid:
+	# CODE HERE
+```
+
+NOT OK -
+
+```
+if user.account.violations.count == 3:
+    # CODE HERE
+```
+
+Create service classes, instead:
+
+```
+class AccountDisablePolicy:
+    def __init__(self, user):
+        self.user = user
+
+    def enforce():
+    	if self.user.account.is_valid:
+    		user.disable()
+    		user.send_disable_email()
+```
+
+I'm not sure where you'd call `AccountDisablePolicy.enforce()`, though.
