@@ -17,6 +17,47 @@
 - Hardware keylogger, packet sniffer, etc
 - Keylogging password for password manager
 
+## Information gathering
+
+From an endpoint, can gather:
+
+- Accounts
+- Open applications (Helps keylogger)
+- Browser extensions
+- Files/directories on disk
+- Network shares
+- Running processes
+- Security software on machine
+- System info (patches, OS version, etc)
+- Network connections
+
+Can also:
+
+- Port scan other hosts
+- Sniff network traffic
+- Query registry
+
+## Lateral Movement
+
+- Use JAMF, Ansible etc to deploy malware
+- Exploit vulnerable network services
+- Pass the hash
+- Pass the ticket
+- Upload malicious files onto internal website
+- Embed macros into shared documents
+- Execute commands remotely using internally hosted software (eg, Carbon Black)
+- Keylog user's password. Then execute commands remotely with winrm
+- Copy adversary's tools to other PCs with FTP/SCP
+- RDP session hijacking
+- Log in with a legitimate RDP/SSH/other service password
+- SSH hijacking
+
+## Privilege escalation
+
+- Scheduled tasks in older versions of Windows run as SYSTEM
+- Stealing an admin's credentials
+- Exploiting an program running as SYSTEM
+
 ## Persistence
 
 - Autoruns in Windows Registry
@@ -45,15 +86,6 @@
 - Can use Windows Resource Protection to counter-act this
 - Also, if a system binary changes, its hash will change
 - And its digital signature will be invalidated
-
-## Exfiltration
-
-- Schedule transfer at certain times in day, to blend in with normal traffic
-- Copy data onto removable drive
-- Exfiltrate over bluetooth, cellular signal etc
-- Exfiltrate over multiple channels
-- Encrypt, split, compress files
-- Steganography
 
 ## Defense Evasion
 
@@ -115,27 +147,6 @@
 - Attacker then puts the hash in his `lsass.exe` memory. Lets him access any service victim could with those credentials
 - Attack is possible because NTLM challenge-response doesn't require a plaintext password, just the hash
 
-## Lateral Movement
-
-- Use JAMF, Ansible etc to deploy malware
-- Exploit vulnerable network services
-- Pass the hash
-- Pass the ticket
-- Upload malicious files onto internal website
-- Embed macros into shared documents
-- Execute commands remotely using internally hosted software (eg, Carbon Black)
-- Keylog user's password. Then execute commands remotely with winrm
-- Copy adversary's tools to other PCs with FTP/SCP
-- RDP session hijacking
-- Log in with a legitimate RDP/SSH/other service password
-- SSH hijacking
-
-## Privilege escalation
-
-- Scheduled tasks in older versions of Windows run as SYSTEM
-- Stealing an admin's credentials
-- Exploiting an program running as SYSTEM
-
 ## Command and Control
 
 - Using a web service (like Twitter)
@@ -145,22 +156,11 @@
 - Split communication over multiple chaanels
 - Encrypt C&C body, even while using HTTPS
 
-## Information gathering
+## Exfiltration
 
-From an endpoint, can gather:
-
-- Accounts
-- Open applications (Helps keylogger)
-- Browser extensions
-- Files/directories on disk
-- Network shares
-- Running processes
-- Security software on machine
-- System info (patches, OS version, etc)
-- Network connections
-
-Can also:
-
-- Port scan other hosts
-- Sniff network traffic
-- Query registry
+- Schedule transfer at certain times in day, to blend in with normal traffic
+- Copy data onto removable drive
+- Exfiltrate over bluetooth, cellular signal etc
+- Exfiltrate over multiple channels
+- Encrypt, split, compress files
+- Steganography
