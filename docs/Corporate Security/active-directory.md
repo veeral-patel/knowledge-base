@@ -62,7 +62,7 @@ sales.corp.com - 1 OU
 sales.newcorp.com - 1 OU
 ```
 
-## Domains in the same forest share:
+## Domains in the same forest share
 
 - the same schema
 - the same configuration partition (?)
@@ -108,3 +108,10 @@ sales.newcorp.com - 1 OU
   2 trees - `flexport.com` and `foobar.com`
 - Flexport can then combine `flexport.com` and `foobar.com` into a forest - so 1
   central group can administer both, the trees share a schema, etc
+
+## Physical AD Layout
+
+- can replicate your domain controllers (DCs)
+- can select domain controllers to store global catalogs
+- guideline - have a DC at each branch office with >= 50 people to speed up authentication requests
+- have a DC at any office with applications running which require AD authentication
