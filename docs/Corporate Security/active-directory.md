@@ -76,13 +76,11 @@ sales.newcorp.com - 1 OU
 - each OU is in exactly 1 domain
 - an OU can't contain objects from other domains
 
-- patterns for organizing a domain's objects into OUs:
+### Patterns for organizing a domain's objects into OUs
 
-  - object-based - most flexible
-    - domain has OUs for users, printers, computers (for example)
-  - administrative
-  - division/department
-
+- object-based. domain has OUs for users, printers, computers. most flexible
+- administrative
+- division/department
 - can assign an administrator to an OU
 
 ## Stable Domains and Transient OUs
