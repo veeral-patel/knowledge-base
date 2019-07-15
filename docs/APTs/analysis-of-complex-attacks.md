@@ -78,3 +78,12 @@ Austrialian Signals Directorate: To stop 85% of complex attacks, do:
 2. Patching apps
 3. Patching OS
 4. Restrict admin privileges
+
+## Who are the threat actors?
+
+- Insider threats - motivated by money or revenge
+- Hacktivist networks - motivated by ideological reasons
+- APTs - motivated by economic, military reasons
+- Script Kiddies - motivated by reputation
+- Cyber criminals - motivated by money
+- Rogue hackers - motivated by reputation
