@@ -40,6 +40,14 @@ Logs:
 - Firewalls - packets accepted or denied
 - Flow records - high level traffic overview
 
+## Identifying malicious traffic
+
+- Connections to suspicious IPs
+- Activity at unusual times of day
+- Large outbound file transfers
+- Workstation to workstation communications
+- Ideally, have a baseline and alert on anomalous network traffic
+
 ## DIY DNS DFIR
 
 [Talk on YouTube](https://www.youtube.com/watch?v=ihxkxV80u6I)
