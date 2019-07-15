@@ -88,3 +88,30 @@ Gigamon also sells its platform to mobile service providers for subscriber-speci
 - Another one consists of analysts that analyze Symantec's threat intel data and create new signatures
 - Virus Protection Promise - if your network gets infected, Norton experts will help you cure it
 
+## Palo Alto Networks
+
+[10K Filing](https://www.sec.gov/Archives/edgar/data/1327567/000132756717000027/panw-7312017x10k.htm)
+
+### Products
+
+- Firewall Appliances: Physical, Virtual, Cloud
+- Firewall Software - PANOS
+- Panorama - central management console for all of an organization’s PAN firewalls
+- Subscriptions - add-ons to platform
+- Threat Prevention: IDS/IPS
+- URL Filtering
+- Wildfire Subscription: Automated malware sandbox
+- GlobalProtect: Global secure proxies that connect to your corporate network as a service
+- Subscriptions - sold per endpoint or user
+- Traps Endpoint Protection Subscription
+- AutoFocus Subscription
+- Aperture Subscription
+- GlobalProtect Cloud Service Subscription
+- Logging Service Subscription
+
+### Key Insight
+
+- Develop a core product along with subscriptions customers can buy from the web
+  interface
+- These subscriptions would start working immediately, and you could sign up for
+  a free trial first. This would make upselling painless.
