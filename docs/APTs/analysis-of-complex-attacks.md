@@ -87,3 +87,13 @@ Austrialian Signals Directorate: To stop 85% of complex attacks, do:
 - Script Kiddies - motivated by reputation
 - Cyber criminals - motivated by money
 - Rogue hackers - motivated by reputation
+
+## Building a cyber army for North Korea
+
+[Talk on YouTube](https://www.youtube.com/watch?v=8AB3NcCkGNQ)
+
+Strength in cyberspace = controlling as many machines as possible
+
+- Makes attributing to you hard
+- And attributing to your opponent easy. (If you are on a network which your opponent hacks)
+- Makes denial-of-service attacks feasible
