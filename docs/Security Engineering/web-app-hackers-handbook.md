@@ -307,3 +307,93 @@ and opens a alert on the page.
 - Worst case - everyone has same password
 - Password can also be derived from username, job function, etc.
 - Or contains a sequence that's guessable from a sample of passwords
+
+## Attacking Backend Components
+
+### OS Command Injection
+
+#### How to detect?
+
+- If not given any immediate output, use time delays
+- Inject "run ping for 30 seconds" and see if the app takes 30 seconds
+- Try sending output to another file or over SMTP
+
+#### Injecting parameters
+
+- server runs: wget <user input>
+- set user input = "url -O file.txt"
+- allows you to write any arbitrary files on the server
+
+#### Injecting of scripting commands
+
+- eg, server runs: system(<user input>)
+- make server run: system('echo 2011') -> if 2011 printed, then you can inject scripting commands
+
+#### Prevention
+
+- Use server APIs; don't call OS commands directly
+- Whitelist user input to a set of expcted values
+- Limit character set to alphanumerics only
+
+## File Traversal
+
+- I know what this is
+- Try changing format or canonicalization of path
+
+#### Prevention:
+
+- Reject any string that contains a path traversal sequence
+- Reject any string not on the whitelist of acceptable file extensions
+- Check that file being accessed is in the intended directory
+
+## File Inclusion
+
+### Remote File Inclusion
+
+Example:
+
+```
+$country = $\_GET['country'];
+include(\$country . '.php')
+```
+
+If `$country` = "US", then the code of `US.php` is pasted into the file, which is then run.
+
+If you set `$country` to be a URL of a php file, then that arbitrary code will get executed.
+
+### Local File Inclusion
+
+- Problem: Can't read file X on the server.
+- Solution: Include file X into another file, which is displayed. Then see X's contents!
+
+## Server-side HTTP Redirection
+
+- Server takes user input and requests something based on that user input
+- Backend HTTP request can be to something on the internal network, or on the Internet
+
+### Example
+
+```
+www.fetch.com/q?file="reddit.com/main.css"
+```
+
+- Here, file is a URL provided by the user. Then, the website, downloads the file at that URL.
+- Attacker can put his own IP or something and make the web app connect to it - file="192.168.0.1:22"
+- Use the web app as a HTTP proxy to perform more attacks
+  - Attack 3rd-party servers without getting caught
+  - Connect to hosts on the internal network
+
+## HTTP Parameter Injection
+
+- Tamper with the URL directly to change the web app's behavior
+
+## Email Header Manipulation
+
+> When a form is added to a Web page that submits data to a Web application, a malicious user may exploit the MIME format to append additional information to the message being sent, such as a new list of recipients or a completely different message body.
+
+> Because the MIME format uses a carriage return to delimit the information in a message, and only the raw message determines its eventual destination, adding carriage returns to submitted form data can allow a simple guestbook to be used to send thousands of messages at once
+
+## SMTP Injection
+
+- Website uses POST parameters to fill out an email to send
+- Inject extra data to send arbitrary emails
