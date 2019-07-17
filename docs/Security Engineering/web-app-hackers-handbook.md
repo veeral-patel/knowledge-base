@@ -123,3 +123,38 @@ and opens a alert on the page.
 
 - Sending lots of attack strings to a website and seeing the results is
   tedious done manually
+
+## Bypassing client-side controls
+
+- Hidden form fields
+- HTTP cookies
+- URL parameters
+- Referer header
+
+### Obfuscated data
+
+- Ex: ASP.NET View State
+- Try to decipher algorithm
+- Find a way to convert a string you choose into opaque string
+- Replay opaque string in other requests
+- Attack server side logic that deobfuscates the opaque string
+
+### Bypassing client side validation in HTML forms
+
+- Intercept and modify data after submitting
+- Disable Javascript in browswer
+- Intercept the server response and modify validation JS
+  script to eliminate its effect
+- Look for disabled elements
+- Client side validation only problematic if no server side validation is done
+
+### Capturing data with browser extensions
+
+- Intercept and modify requests to/from browser extension
+  - Serialized data: Deserialize, modify, re-serialize (Burp plugins)
+  - May need to install SSL certificate in proxy
+  - Non-HTTP protocol: Echo Mirage tool
+- Reverse engineer the browser extension, learn what it's doing
+  - Then modify code, recompile, and uploadto browser
+- Modify the Javascript that interacts with extension (eg, show a hidden view)
+- Attaching a debugger (JavaSnoop, Jswap)
