@@ -414,3 +414,75 @@ www.fetch.com/q?file="reddit.com/main.css"
 
 - Website uses POST parameters to fill out an email to send
 - Inject extra data to send arbitrary emails
+
+## Exploiting information disclosure
+
+- Script error messages
+- Stack traces
+- Verbose debug messages from application
+- Messages from server or database
+- Engineering informative error messages
+- Gathering published information
+- Leveraging side channels
+
+## Core Defense Mechanism
+
+### Handling user access
+
+- Authentication - ensure the attacker cannot masquerade to be someone else
+- Session management
+- Authorization - ensure the attacker cannot do something he doesn't have the privileges to do
+- All user input is untrusted and must be validated
+
+### Types of input:
+
+- Form fields
+- Cookies
+- Hidden form fields
+
+### Approaches to input handling
+
+- "Reject known bad", ie, blacklist: ineffective!
+
+#### "Accept known good"
+
+- very effective!
+- ie, input must pass certain tests
+- problem: apostraphes cause security risk, but people have apostrophes in their name
+
+#### Sanitization
+
+- very effective!
+- Accept the malicious input, then sanitize the input before submitting it
+
+#### Safe data handling
+
+- instead of sanitizing malicious data, accept the malicious data, but process it in a safe way
+- ie, don't pass data to OS command interpreter
+
+#### Semantic checks
+
+- sometimes, the input a good user and an attacker submits is identical
+- for example, if online banking web app sends user's account number as a hidden form field
+- validate that account number submitted belongs to the user who submitted it
+
+#### Boundary validation
+
+- every service that touches the input validates the input so the input cannot compromise that service.
+
+##### Example:
+
+- User puts login credentials into form. Form validates input contains only allowed characters, is within a certain length limit, doesn't contain any attack signatures
+- Application performs SQL query using username/password. Special characters are escaped to prevent SQL injection attacks
+- Application displays user account information. To prevent XSS, the web app HTML-encodes any user-supplied data
+
+#### Multistep validation and canonicalization
+
+- Say an app tries preventing XSS by stripping `script` tag from any input
+- User bypasses it with input `<scr<script>ipt>`
+
+### Handling Attackers
+
+- Handling errors: never show error message to public
+- Maintaining audit logs. (But leaked audit logs can be a gold mine for the attacker!)
+- Alert sysadmins. Usage anomalies may indicate a scripted attack, for example
