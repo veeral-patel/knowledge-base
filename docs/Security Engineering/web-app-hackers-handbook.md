@@ -1,5 +1,22 @@
 # Web Application Hacker's Handbook
 
+## Web Application (In)security
+
+- Before - websites were static pages. To attack a website, you attacked the server. The attackers' goal was to host warez onto the server.
+- Today - websites are web applications. They contain a lot of personal information about users. Web apps can be attacked in MANY different ways. A successful attacker can steal personal information, commit fraud, access internal networks, and do a lot more.
+
+### The core security problem
+
+- Web app trusts the client about something
+- Users can submit arbitrary input which the server acts upon
+
+### Web apps change the security perimeter
+
+- Before, the perimeter was defended by firewalls, IPSs, and other devices
+- Now, the perimeter contains web apps that need to communicate with databases within the internal network
+- Before, an attacker needed to hack into a company to steal its data
+- Now, it can exploit something like SQL injection on the website
+
 ## Mapping an application
 
 - Automatic spidering
