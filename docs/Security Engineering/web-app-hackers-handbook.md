@@ -353,6 +353,93 @@ and opens a alert on the page.
 - Password can also be derived from username, job function, etc.
 - Or contains a sequence that's guessable from a sample of passwords
 
+## Attacking Session Management
+
+### Implementing Sessions with Cookies
+
+- Most common way of implementing cookies is giving each user a unique session token
+- Every time the user visits the site, the browser resubmits the token automatically as a cookie
+- But session ID can also be sent as a GET or POST parameter
+
+### Vulnerabilities in session management
+
+- Vulnerability in generating session tokens
+- Vulnerability in handling of session tokens during their life cycle
+
+#### Tips
+
+- Don't assume the session ID is in the cookie by itself - it may not be in the cookie, or it may be a combination of things in and out of the cookie
+- Delete cookies from a personalized page to see which cookies are used in session IDs
+- Notice which cookies are sent to the browser after logging in
+
+### Alternatives to Sessions
+
+#### Http Authentication
+
+- First time, user enters his credentials.
+- In every successive packet, browser automatically sends credentials as a HTTP header in every packet
+
+#### Sessionless state mechanisms
+
+- Send all the user's state data in every packet
+
+### Weaknesses in Token Generation
+
+#### Meaningful Tokens
+
+- An attacker can guess the session ID given to another user.
+- Tokens are often structured - several components (IP address, username, etc) separated by delimiters - and encoding
+
+##### Attack steps:
+
+- Modify one token systematically to find parts that are ignored
+- Log in as different users, and compare tokens
+- Analyse tokens for correlations related to user suplied data
+
+#### Predictable Tokens
+
+- Sometimes tokens aren't meaningful, but they can be easily guessed
+- Simplest case: Tokens assigned sequentially
+  - Use Burp Intruder
+- Other cases: Concealed sequences, time dependency, weak random number generation
+
+### Concealed Sequences
+
+- Algorithms that use obfuscation in some way like adding a constant value or encoding data
+
+### Time dependency
+
+- Uses time as an input into the token's value to make it seem random
+
+### Weak random number generation
+
+- Concatenating several weak pseudorandom numbers can actually increase unpredictability
+- It gives the attacker more info. about the internal state making it easier for him to predict future outputs
+- Use Burp Sequencer
+  - "How many bits of randomness does the token actually have?"
+  - Not enough - passing statistical tests does not imply unpredictability
+
+#### Encrypted Tokens
+
+- "Reveal encryption oracle"
+- Side channels
+- Malleable scheme -> modify underlying plaintext (session ID)
+
+### Weaknesses in Session Token Handling
+
+- Disclosure of tokens on the network
+- Disclosure of tokens in logs
+- Vulnerable mapping of tokens to sessions
+- Vulnerable session termination
+- Client exposure to token hijacking
+- Liberal cookie scope
+
+### Securing Session Management
+
+- Generate strong tokens
+- Protect tokens throughout their lifecycle
+- Log, monitor, alert
+
 ## Attacking Backend Components
 
 ### OS Command Injection
@@ -514,3 +601,25 @@ www.fetch.com/q?file="reddit.com/main.css"
 - Handling errors: never show error message to public
 - Maintaining audit logs. (But leaked audit logs can be a gold mine for the attacker!)
 - Alert sysadmins. Usage anomalies may indicate a scripted attack, for example
+
+## Attacking the Application Server
+
+- Default credentials
+- Misconfigured cloud hosting
+- Vulnerabilities in server software
+- Bypassing web app firewalls
+
+### Default content
+
+- Debug functionality
+- Vulnerabilities in sample functionality
+- Powerful functions accidentally left on
+- Server manuals that tell you about the server
+
+### Directory listings
+
+Web app can respond in 3 ways:
+
+- Return default resource, like index.html
+- Return an error page (HTTP 403)
+- Return a listing showing the contents of the directory
