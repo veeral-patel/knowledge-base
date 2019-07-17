@@ -158,3 +158,95 @@ and opens a alert on the page.
   - Then modify code, recompile, and uploadto browser
 - Modify the Javascript that interacts with extension (eg, show a hidden view)
 - Attaching a debugger (JavaSnoop, Jswap)
+
+## Attacking Access Controls
+
+### Types of Access Controls
+
+1. Vertical: Between users and admins
+2. Horizontal: Between users and other users
+3. Context-dependent: Ie, user cannot access stages in a multistate process out of order
+
+### Types of Access Control Attacks:
+
+1. Vertical privilege escalation: Ie, user becomes admin
+2. Horizontal privilege escalation: Ie, user accesses another user's accounts
+3. Business logic exploitation: User exploits a flaw in the application's logic (ie, bypasses payment step in shopping checkout)
+
+### Completely Unprotected Functionality
+
+- Anyone who knows a URL can access the functionality
+- To find - check (Javascript) code for UI elements only visible to admins
+
+## Direct Access to Methods
+
+- URL parameters call API methods that shouldn't be accessible by users
+- Often these API methods have no access control
+
+### Identifier based Functions
+
+- Say document hosted at www.hoster.com/q?docid=3424342
+- Document only appears in owner's UI
+- However, web app doesn't check that person requesting URL owns document, then attacker can access the document if he gets the URL
+- How to get IDs?
+  - if IDs randomly generated: check access logs, brute force
+
+### Multistage Functions
+
+- Web app validates on every stage, but...
+- Web app forgets to re-validate on last step
+- Attacker can intercept packet in last step, change something like source account number, and transfer \$\$\$ out of someone else's account
+
+### Static Files
+
+- Static files are usually put directly onto the server, with no application logic checking if the user has access to them
+
+### Insecure ACL Methods
+
+- Parameter based ACL - send whether user is admin in hidden form field, GET parameter, cookie, etc
+- Referer based ACL
+- Location-based ACL
+
+## Attacking Application Logic
+
+- Often, flaws in logic are due to making a false assumption, and not anticipating something that could happen
+
+### Asking the Oracle
+
+#### The Functionality
+
+- "Remember me" - web app sets permanent cookie in the browser
+- Cookie is unique and unpredictable
+- Web app also stores user's username within "ScreenName cookie" - also encrypted
+
+#### The Assumption
+
+- Used same encryption algorithm for both ScreenName and RememberMe
+- User can specify his own screen name -> he can encrypt anything he wants by checking the cookie
+
+#### First example
+
+- Attacker replaces ScreenName with RememberMe cookie.
+- Contents of RememberMe cookie is decrypted and displayed on screen
+- Why not a serious attack? Attacker just gains some basic info like username, IP address, etc. And attacker would need to steal RememberMe cookie, and if he could do that, he could just steal the session
+
+#### Second example
+
+- User can specify their screen names
+- A user can choose screen name admin|1|192.168.4.243224
+- Web app encrypts this screen name and stores it in the ScreenName cookie
+- Now, replace RememberMe cookie with ScreenName cookie
+- Logs in attacker as admin!
+
+### Password change function
+
+- Assumed that if user didn't enter the old password, he must be a admin
+- Users could just not enter a old password and change any arbitrary user's password
+
+### Proceeding to checkout
+
+- Ecommerce website assumed people would shop in a certain order (find -> pay -> deliver)
+- However, could skip from find to deliver w/o paying
+- "Forced browsing"
+- Try skipping stages, accessing a stage more than once, accessing earlier stages after later ones
+- Might encounter errors -> useful for learning about the web app
