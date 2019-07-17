@@ -111,6 +111,34 @@ and opens a alert on the page.
 - Exploiting trust relationships
 - Escalating the client-side attack
 
+## Attacking users: other techniques
+
+### Inducing User actions
+
+- On-site request forgery -- used for vertical privilege escalation
+- Cross-site request forgery
+- UI redress
+
+### Capturing data cross-domain
+
+- capturing data by injecting html
+- capturing data by capturing css
+- JavaScript hijacking
+
+### Other client-side injection attacks
+
+- http header injection
+- cookie injection
+- open redirection vulnerabilities
+- client-side sql injection
+- client-side http parameter pollution
+
+### Miscellaneous techniques
+
+- local privacy attacks
+- attacking ActiveX controls
+- attacking the browser
+
 ## Automating Web Attacks
 
 ### Uses for automation
