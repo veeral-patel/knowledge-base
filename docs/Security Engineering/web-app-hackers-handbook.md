@@ -250,3 +250,60 @@ and opens a alert on the page.
 - "Forced browsing"
 - Try skipping stages, accessing a stage more than once, accessing earlier stages after later ones
 - Might encounter errors -> useful for learning about the web app
+
+## Attacking authentication
+
+- Bad password policy
+- Multiple users with same username
+- Transmitting credentials in cleartext
+- Insecure distribution of credentials
+- Unsafe handling with HTTPS
+
+### Brute forcible login
+
+- Storing failed login count in cookie
+- No account lockout
+
+### Verbose failure messages
+
+- Enumerating username using "new account"
+- HTML difference in server response
+- Time difference in server response
+
+### Unsafe change password functionality
+
+- Modify username field
+
+### "Forgot password" functionality
+
+- Easily guessed answers
+- Brute forcible answers
+
+### "Remember me" functionality
+
+- Store username in persistent cookie
+- Store session ID in persistent cookie
+- Physical access to victim's computer
+
+### User impersonation functionality
+
+- Hidden function
+- Trust user input like cookie
+- Impersonate administrator
+- Backdoor password
+
+### Incomplete validation of credentials
+
+- For example, stripping off unusual characters or removing first n characters before validating
+
+### Predictable usernames
+
+- Web app generates usernames for you, but they are predictable
+- Can be used to enumerate possible usernames
+
+### Predictable initial passwords
+
+- Web app assigns you a password, which you change
+- Worst case - everyone has same password
+- Password can also be derived from username, job function, etc.
+- Or contains a sequence that's guessable from a sample of passwords
