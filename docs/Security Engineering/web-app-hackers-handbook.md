@@ -93,3 +93,33 @@ and opens a alert on the page.
 - Inducing user actions
 - Exploiting trust relationships
 - Escalating the client-side attack
+
+## Automating Web Attacks
+
+### Uses for automation
+
+- Enumerate identifiers
+- Harvesting data
+- Web app fuzzing
+
+### Enumerating valid identifiers
+
+- Ex. pages can be identified by page IDs, but not all page IDs correspond to
+  valid pages.
+- Detecting hits
+  - HTTP status code
+  - Response length
+  - String in response body
+  - Location header (for redirects)
+  - Set Cookie header
+  - Time delays
+
+### Harvesting data
+
+- Ex. Each page has sensitive information. You write a script to scrape each
+  page for the data.
+
+### Web app fuzzing
+
+- Sending lots of attack strings to a website and seeing the results is
+  tedious done manually
