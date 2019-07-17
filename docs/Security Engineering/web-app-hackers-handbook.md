@@ -320,14 +320,14 @@ and opens a alert on the page.
 
 #### Injecting parameters
 
-- server runs: wget <user input>
-- set user input = "url -O file.txt"
+- server runs: `wget <user input>`
+- set user input = `url -O file.txt`
 - allows you to write any arbitrary files on the server
 
 #### Injecting of scripting commands
 
-- eg, server runs: system(<user input>)
-- make server run: system('echo 2011') -> if 2011 printed, then you can inject scripting commands
+- eg, server runs: `system(<user input>)`
+- make server run: `system('echo 2011')` -> if `2011` printed, then you can inject scripting commands
 
 #### Prevention
 
