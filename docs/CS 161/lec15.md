@@ -29,6 +29,8 @@
   number (still use one host)
 - Note: You can only flood and spoof using UDP packets. (TCP doesn't work because the victim may be unable to establish a TCP connection with the host at the spoofed IP. I'm excluding SYN flooding, as it's not based on sending lots of packets.)
 - Use many hosts -- say a botnet -- to send traffic (DDoS). Mirai botnet took down Dyn DNS, which also took down Twitter and Reddit.
+- DDoS can be used for extortion, censorship by governments, for ideological
+  reasons
 
 ## TCP SYN Flooding
 
