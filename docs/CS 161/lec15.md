@@ -17,6 +17,7 @@
   maximum number of packets the victim can receive at once
 - Or send maximum-sized packets, with the aim of overwhelming the victim's
   bandwidth
+- Amplification: A DNS response is much larger than a DNS query, so send a lot of DNS queries to a DNS server, with the source IP set to the victim's IP. Also see NTP amplification
 
 ### Flooding defenses
 - Filter packets from the attacker's IP, using a firewall
@@ -40,5 +41,11 @@
   make?
 
 ### Defenses
-- Add more memory
+- Add more memory to your servers
+- Filter traffic using an IP reputation database
 - SYN cookies
+
+## Application layer DoS
+- Algorithmic complexity attacks
+- Malicious GraphQL queries
+- Writing scripts to increase application load. For example, writing a script to post thousands of comments per second on a blog. CAPTCHA and verifying people before granting API access are two defenses.
