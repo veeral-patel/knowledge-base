@@ -2,6 +2,10 @@
 
 [https://inst.eecs.berkeley.edu/~cs161/sp19/lectures/lec15_net_5.pdf](https://inst.eecs.berkeley.edu/~cs161/sp19/lectures/lec15_net_5.pdf)
 
+## To look into:
+- TCP SYN flooding defenses
+- SYN cookies
+
 ## Single system DoS
 - Resource consumption: run a fork bomb! Solution is for the system to
   enforce some quota on each user's resource usage.
@@ -24,3 +28,17 @@
   number (still use one host)
 - Note: You can only flood and spoof using UDP packets. (TCP doesn't work because the victim may be unable to establish a TCP connection with the host at the spoofed IP. I'm excluding SYN flooding, as it's not based on sending lots of packets.)
 - Use many hosts -- say a botnet -- to send traffic (DDoS). Mirai botnet took down Dyn DNS, which also took down Twitter and Reddit.
+
+## TCP SYN Flooding
+
+- Attacker sends a SYN packet, victim sends a SYN/ACK, but the attacker
+  doesn't send an ACK
+- Each half-open TCP connection consumes some memory; the purpose of SYN
+  flooding is to consume the victim host's memory
+- Question: does SYN flooding seek to consume all of the victim host's
+  memory, or exhaust the number of network connections the victim host can
+  make?
+
+### Defenses
+- Add more memory
+- SYN cookies
