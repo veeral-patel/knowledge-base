@@ -46,6 +46,6 @@
 - SYN cookies
 
 ## Application layer DoS
-- Algorithmic complexity attacks
-- Malicious GraphQL queries
+- Algorithmic complexity attacks. Examples: using inputs that cause hashtable collisions and malicious GraphQL queries
 - Writing scripts to increase application load. For example, writing a script to post thousands of comments per second on a blog. CAPTCHA and verifying people before granting API access are two defenses.
+- Massive over-provisioning -- either yourself, or by paying a CDN
