@@ -50,3 +50,9 @@ Alice| read, write | read
 - The browser kernel is the TCB for ensuring drive by malware cannot
   read/write local files
 - By isolating the browser kernel from the rendering engine, we've made the TCB as small as possible (in addition to separating privileges)!
+
+## Time-to-Use vs Time-To-Check
+- Idea: between the time you can check something and the time you use it, the check decision may get invalidated
+- For example: you check if the user has enough balance, then you let him
+  withdraw money. but between your check and his withdrawal, he might've
+withdrawn money from somewhere else!
