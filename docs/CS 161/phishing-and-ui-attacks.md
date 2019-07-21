@@ -50,11 +50,11 @@ both of the factors are something you know
 - Can hide real cursor using `cursor: none` CSS rule
 - Demo: https://koto.github.io/blog-kotowicz-net-examples/cursorjacking/
 
-### Clickjacking defenses
-#### Ineffective defenses
+## Clickjacking defenses
+### Ineffective defenses
 - Good site pops up a modal confirming user's action. Bad UX!
 - Pop up a modal once in a while, not always, to confirm the user's action. Bad
   UX and the bad site can still clickjack, just less effectively.
 
-#### Framebusting 
+### Framebusting 
 - Good site includes JavaScript code that prevents other pages from framing it
