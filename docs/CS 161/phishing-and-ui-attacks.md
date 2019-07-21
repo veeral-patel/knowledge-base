@@ -42,6 +42,12 @@ both of the factors are something you know
   button in front of the play button
 - Causes your users to like your site without realizing it
 
+### Temporal clickjacking
+- For example, when you click a button for an insensitive action, a
+  button for a sensitive action appears overlayed and you click on it by
+  accident
+
+
 ### Cursorjacking
 - Idea: draw the user's real mouse cursor as well as a fake mouse cursor which
   is an offset away from the real cursor
@@ -51,10 +57,33 @@ both of the factors are something you know
 - Demo: https://koto.github.io/blog-kotowicz-net-examples/cursorjacking/
 
 ## Clickjacking defenses
-### Ineffective defenses
+### Initial ideas
 - Good site pops up a modal confirming user's action. Bad UX!
 - Pop up a modal once in a while, not always, to confirm the user's action. Bad
   UX and the bad site can still clickjack, just less effectively.
+- Facebook pops up a modal if it thinks the site may be untrustworthy
 
 ### Framebusting 
 - Good site includes JavaScript code that prevents other pages from framing it
+- Framebusting can be circumvented -- bad site can have two layers of iframes,
+  for example
+
+### Cursorjacking defenses
+- Target here may be a modal to allow webcam access
+- Freeze screen outside target display area when the real pointer enters the target, += X pixels
+- Lightbox effect around target when cursor enters it
+
+#### `X-Frame-Options`
+- Good sites' web server attaches HTTP header to response
+- Two options: DENY and SAMEORIGIN
+- DENY: browser will not render page in framed context
+- SAMEORIGIN: browser will only render if top frame is same origin as page giving
+directive
+
+### Temporal clickjacking defenses
+- Invalidate clicks on a button for X ms after a visual change to the button
+- After a visual change on a button, invalidate clicks until the cursor leaves
+  and re-enters the button
+
+### Summary
+- Use `X-Frame-Options`
