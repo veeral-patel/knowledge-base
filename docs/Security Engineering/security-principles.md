@@ -16,3 +16,4 @@
 - Make your TCB as small as possible
 - Detect if you can't prevent
 - Use fail-safe defaults  
+- Protect at the lowest possible layer
