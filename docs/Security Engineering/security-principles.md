@@ -13,3 +13,4 @@
 - Design security in from the start
 - Ensure complete mediation
 - Division of trust
+- Make your TCB as small as possible
