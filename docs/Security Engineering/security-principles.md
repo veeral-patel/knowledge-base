@@ -14,3 +14,5 @@
 - Ensure complete mediation
 - Division of trust
 - Make your TCB as small as possible
+- Detect if you can't prevent
+- Use fail-safe defaults  
